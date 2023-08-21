@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const task_controller_1 = require("./task.controller");
+const requireAuth_1 = require("../../utils/requireAuth");
+const validationMiddleware_1 = require("../../middlewares/validationMiddleware");
+const taskValidation_1 = require("../../validations/taskValidation");
+const taskRouter = express_1.default.Router();
+taskRouter.post("/task", (0, validationMiddleware_1.validation)(taskValidation_1.taskValidationSchema), requireAuth_1.authorize, requireAuth_1.adminAuth, task_controller_1.createTask);
+taskRouter.get("/task", requireAuth_1.authorize, requireAuth_1.adminAuth, task_controller_1.ViewTasks);
+taskRouter.get("/task/complete", requireAuth_1.authorize, requireAuth_1.adminAuth, task_controller_1.completeTask);
+taskRouter.get("/task/pending", requireAuth_1.authorize, requireAuth_1.adminAuth, task_controller_1.pendingTask);
+taskRouter.get("/view/task/:user_id", requireAuth_1.authorize, requireAuth_1.verifyCertainToken, task_controller_1.viewCertainTask);
+taskRouter.get("/task/:task_id", requireAuth_1.authorize, requireAuth_1.adminAuth, task_controller_1.viewCertainTaskAdmin);
+taskRouter.put("/task/:task_id", (0, validationMiddleware_1.validation)(taskValidation_1.taskValidationSchema), requireAuth_1.authorize, requireAuth_1.adminAuth, task_controller_1.modifyTask);
+taskRouter.delete("/task/:task_id", requireAuth_1.authorize, requireAuth_1.adminAuth, task_controller_1.deleteTask);
+exports.default = taskRouter;

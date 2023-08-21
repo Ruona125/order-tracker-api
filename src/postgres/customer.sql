@@ -1,0 +1,1 @@
+CREATE TABLE customer ( customer_id varchar(255) not null, full_name varchar(255) not null, phone_number varchar(50) not null, email varchar(255), location varchar(255) not null, primary key(customer_id) );

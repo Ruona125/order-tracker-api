@@ -1,0 +1,1 @@
+CREATE TABLE sessions ( user_id varchar(255), token TEXT NOT NULL );

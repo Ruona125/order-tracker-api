@@ -1,0 +1,1 @@
+CREATE TABLE milestone ( milestone_id varchar(255) PRIMARY KEY not null, milestone_status varchar(255) DEFAULT 'MILESTONE CREATED' not null, description varchar (1000) not null, countdown_timer varchar(50) not null, order_id varchar(255) not null, FOREIGN KEY (order_id) REFERENCES orders(order_id) );
