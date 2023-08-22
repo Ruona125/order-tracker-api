@@ -5,7 +5,7 @@ import { randomBytes } from "crypto";
 
 
 export async function registerUser(req: Request, res: Response) {
-  const { name, email, password, security_question, security_answer } = req.body;
+  const { name, email, password } = req.body;
   if (!email || !password) {
     return res.status(400).json({ message: "Email and password are required" });
   }
@@ -17,9 +17,7 @@ export async function registerUser(req: Request, res: Response) {
       name,
       password: passwordHash,
       email,
-      roles: "staff", 
-      security_question,
-      security_answer, 
+      roles: "admin",  
     });
     res.status(200).json("User successfully created");
   } catch (err) {
