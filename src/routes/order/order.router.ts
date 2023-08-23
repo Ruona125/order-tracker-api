@@ -6,7 +6,7 @@ import {validation} from "../../middlewares/validationMiddleware"
 const orderRouter: Router = express.Router()
 import upload from "./order.controller";
 
-orderRouter.post("/order", authorize, validation(createOrderSchema), staffAuth, upload.array("order_design_artwork"), createOrder);
+orderRouter.post("/order", authorize, validation(createOrderSchema), staffAuth, upload.single("order_design_artwork"), createOrder);
 orderRouter.get("/order", authorize, staffAuth, viewOrder)
 orderRouter.get("/order/:order_id", authorize, staffAuth, viewCertainOrder)
 orderRouter.get("/order-url/:order_id", orderUrl)

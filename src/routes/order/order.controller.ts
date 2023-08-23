@@ -89,35 +89,16 @@ export async function viewOrder(req: Request, res: Response) {
     return res.status(404).json({ message: "No orders found" });
   }
 
-  // Inside the loop that processes orders
-// Inside the loop that processes orders
-// Inside the loop that processes orders
-for (let order of orders) {
-  if (Array.isArray(order.order_design_artwork)) {
-    try {
-      const imageUrls = await Promise.all(
-        order.order_design_artwork.map(async (imageKey: string) => { // Explicitly define the type of imageKey as string
-          return await getObjectSignedUrl(imageKey);
-        })
-      );
-      order.imageUrls = imageUrls;
-    } catch (err: any) {
-      console.log(err);
-      return res.status(400).json(err.message);
-    }
-  } else if (order.order_design_artwork) {
-    try {
-      const imageUrl = await getObjectSignedUrl(order.order_design_artwork);
-      order.imageUrls = [imageUrl];
-    } catch (err: any) {
-      console.log(err);
-      return res.status(400).json(err.message);
+  for (let order of orders) {
+    if (order.order_design_artwork) {
+      try {
+        order.imageUrl = await getObjectSignedUrl(order.order_design_artwork);
+      } catch (err: any) {
+        console.log(err);
+        return res.status(400).json(err.message);
+      }
     }
   }
-}
-
-
-
 
   res.send(orders);
 }
