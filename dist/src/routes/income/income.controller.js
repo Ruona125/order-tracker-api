@@ -74,13 +74,16 @@ function viewCertainIncome(req, res) {
         .where({ income_id })
         .then((income) => {
         if (income.length) {
-            return res.json(income[0]);
+            return res.status(200).json(income[0]);
         }
         else {
             return res.status(404).json({ message: "income not found" });
         }
     })
-        .catch((err) => res.status(400).json({ message: "error getting income" }));
+        .catch((err) => {
+        console.error(err); // Log the error for debugging
+        res.status(500).json({ message: "error getting income" });
+    });
 }
 exports.viewCertainIncome = viewCertainIncome;
 function modifyIncome(req, res) {

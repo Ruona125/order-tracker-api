@@ -27,7 +27,7 @@ function createExpenses(req, res) {
                 date,
                 order_id,
             });
-            res.status(200).json({ message: "Expenses created" });
+            res.status(200).json({ message: "Expenses Created" });
         }
         catch (err) {
             console.log(err);

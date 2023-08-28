@@ -18,7 +18,7 @@ const database_1 = __importDefault(require("../../utils/database"));
 const crypto_1 = require("crypto");
 function registerUser(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        const { name, email, password, security_question, security_answer } = req.body;
+        const { name, email, password } = req.body;
         if (!email || !password) {
             return res.status(400).json({ message: "Email and password are required" });
         }
@@ -30,9 +30,7 @@ function registerUser(req, res) {
                 name,
                 password: passwordHash,
                 email,
-                roles: "staff",
-                security_question,
-                security_answer,
+                roles: "admin",
             });
             res.status(200).json("User successfully created");
         }
