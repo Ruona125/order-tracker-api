@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "npm install --omit=dev && pm2 start ./dist/server.js",
+    "start": "npm install --omit=dev && nodemon ./dist/server.js",
     "stop": "pm2 stop ./dist/server.js",
     "build": "npm install --omit=dev && rimraf dist && npx tsc",
     "dev": "nodemon --exec ts-node server.ts",
