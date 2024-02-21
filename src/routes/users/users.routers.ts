@@ -3,10 +3,13 @@ import {
   changePassword,
   resetPassword,
   //  forgotPassword
+  test
 } from "./users.controller";
 import { authorize, verifyPostCertainToken } from "../../utils/requireAuth";
 
 const changePasswordRouter: Router = express.Router();
+
+changePasswordRouter.get("/test", test)
 
 changePasswordRouter.post(
   "/update/password",

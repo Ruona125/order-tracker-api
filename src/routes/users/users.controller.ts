@@ -77,3 +77,7 @@ export async function resetPassword(req: Request, res: Response) {
     return res.status(500).json({ error: "internal server error" });
   }
 }
+
+export function test(req:Request, res: Response){
+  res.send("worked")
+}
