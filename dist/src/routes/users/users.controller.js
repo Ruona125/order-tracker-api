@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.resetPassword = exports.changePassword = void 0;
+exports.test = exports.resetPassword = exports.changePassword = void 0;
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const database_1 = __importDefault(require("../../utils/database"));
 const dotenv_1 = __importDefault(require("dotenv"));
@@ -80,3 +80,7 @@ function resetPassword(req, res) {
     });
 }
 exports.resetPassword = resetPassword;
+function test(req, res) {
+    res.send("worked");
+}
+exports.test = test;

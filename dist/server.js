@@ -5,8 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const http_1 = __importDefault(require("http"));
 const app_1 = __importDefault(require("./src/app"));
-const PORT = 8000;
+const PORT = process.env.SERVER_PORT ? parseInt(process.env.SERVER_PORT, 10) : 8000;
 const server = http_1.default.createServer(app_1.default);
-server.listen(PORT, () => {
-    console.log("listeing to port 8000");
+server.listen(PORT, '0.0.0.0', () => {
+    console.log(`listeing to port ${PORT}`);
 });
