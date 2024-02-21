@@ -21,7 +21,7 @@ const db = (0, knex_1.default)({
     connection: {
         host: process.env.HOST,
         user: process.env.USER,
-        port: process.env.DATABASE_PORT ? parseInt(process.env.DATABASE_PORT, 10) : 54732,
+        port: 54732,
         password: process.env.PASSWORD,
         database: process.env.DATABASE,
     },
