@@ -1,0 +1,3 @@
+-- CREATE TABLE users ( user_id varchar(255) not null, name varchar(100) not null, email varchar(255) not null, roles varchar(45) not null, reset_token varchar(255), password varchar(255) not null, security_question VARCHAR(255) not null, security_answer VARCHAR(255) not null, primary key(user_id) );
+
+CREATE TABLE users ( user_id varchar(255) not null, name varchar(100) not null, email varchar(255) not null, roles varchar(45) not null, password varchar(255) not null, security_question VARCHAR(255) not null, security_answer VARCHAR(255) not null, primary key(user_id) );

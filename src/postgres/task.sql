@@ -1,0 +1,1 @@
+CREATE TABLE tasks( task_id varchar(255) PRIMARY KEY NOT NULL, status varchar(255) not null, task text not null, deadline varchar(255) not null, user_id varchar not null, foreign key (user_id) references users(user_id) );

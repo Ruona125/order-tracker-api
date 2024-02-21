@@ -1,0 +1,1 @@
+CREATE TABLE orders ( order_id varchar(255) PRIMARY KEY NOT NULL, order_number varchar(255) NOT NULL, details TEXT NOT NULL, cost_of_order BIGINT NOT NULL, start_date DATE NOT NULL, end_date DATE NOT NULL, status VARCHAR(50) NOT NULL, customer_id varchar(255) NOT NULL, FOREIGN KEY (customer_id) REFERENCES customer(customer_id) );
