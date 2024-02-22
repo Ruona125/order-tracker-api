@@ -16,11 +16,11 @@ dotenv.config();
 const db: Knex = knex({
   client: "pg",
   connection: {
-    host: process.env.HOST,
-    user: process.env.USER,
+    host: 'roundhouse.proxy.rlwy.net',
+    user: 'postgres',
     port: 54732,
     password: process.env.PASSWORD,
-    database: process.env.DATABASE,
+    database: 'railway',
   },
 });
 
