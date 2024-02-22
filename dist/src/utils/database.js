@@ -19,11 +19,11 @@ dotenv_1.default.config();
 const db = (0, knex_1.default)({
     client: "pg",
     connection: {
-        host: process.env.HOST,
-        user: process.env.USER,
+        host: 'roundhouse.proxy.rlwy.net',
+        user: 'postgres',
         port: 54732,
         password: process.env.PASSWORD,
-        database: process.env.DATABASE,
+        database: 'railway',
     },
 });
 exports.default = db;

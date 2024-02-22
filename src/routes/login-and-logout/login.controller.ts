@@ -33,13 +33,7 @@ export async function login(req: Request, res: Response) {
     //This is to check if the user_id is stored in the token
     const decode:any = jwt.decode(token);
     // console.log(decode.roles);
-    // console.log(decode.exp)
-
-    //this is to insert the data into the sessions table
-    await db("sessions").insert({
-        user_id: user.user_id,
-        token: token,
-      }); 
+    // console.log(decode.exp) 
 
     //return the user details with token.
     const userWithToken = { ...user, token };

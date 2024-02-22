@@ -24,7 +24,7 @@ const db: Knex = knex({
   },
 });
 
-
+ 
 
 
 export default db;

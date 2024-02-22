@@ -39,12 +39,7 @@ function login(req, res) {
             //This is to check if the user_id is stored in the token
             const decode = jsonwebtoken_1.default.decode(token);
             // console.log(decode.roles);
-            // console.log(decode.exp)
-            //this is to insert the data into the sessions table
-            yield (0, database_1.default)("sessions").insert({
-                user_id: user.user_id,
-                token: token,
-            });
+            // console.log(decode.exp) 
             //return the user details with token.
             const userWithToken = Object.assign(Object.assign({}, user), { token });
             return res.status(200).json(userWithToken);
