@@ -22,7 +22,7 @@ const db = (0, knex_1.default)({
         host: 'roundhouse.proxy.rlwy.net',
         user: 'postgres',
         port: 54732,
-        password: process.env.PASSWORD,
+        password: "g6dgga1*Ed6gDbG4ccdFBcD*eAca552*",
         database: 'railway',
     },
 });
